@@ -22,5 +22,10 @@ declare global {
 		| 'application/json'
 		| 'application/x-www-form-urlencoded'
 		| 'multipart/form-data';
+
+	interface AppSettings {
+		title: string
+		version: string
+	}
 }
 declare const window: any;

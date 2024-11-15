@@ -7,4 +7,5 @@ export const setupStore = (app: App<Element>) => {
 	app.use(store);
 };
 
+export * from './modules/app';
 export { store };

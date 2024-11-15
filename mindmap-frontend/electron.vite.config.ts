@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import path from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import type { UserConfig } from 'electron-vite';
 import type { ConfigEnv } from 'vite';
@@ -9,6 +9,8 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { fileURLToPath } from 'url';
+
 
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	let env = {} as any;
@@ -28,19 +30,23 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 		renderer: {
 			base: env.VITE_BASE_PATH,
 			resolve: {
+				extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.mjs', '.vue'],
 				alias: {
-					'@renderer': resolve('src/renderer/src')
+					
+					'@renderer': path.join(__dirname,'./src/renderer/src')
 				}
 			},
 			plugins: [
 				vue(),
 				AutoImport({
+					imports: ['vue','vue-router','vuex','@vueuse/core'],
 					resolvers: [
 						ElementPlusResolver(),
 						IconsResolver({
 							prefix: 'Icon',
 						}),
 					],
+					dts: fileURLToPath(new URL('./types/auto-imports.d.ts', import.meta.url))
 				}),
 				Components({
 					resolvers:[
@@ -48,7 +54,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 							enabledCollections: ['ep'],
 						}),
 						ElementPlusResolver(),
-					]
+					],
+					dts: fileURLToPath(new URL('./types/components.d.ts', import.meta.url)),
 				}),
 				Icons({
 					autoInstall: true,
