@@ -2,7 +2,7 @@
 	<div class="flex-1">
 		<textarea class="w-full h-full border border-gray-400" v-model="value"></textarea>
 	</div>
-	<svg class="flex-1" ref="svgRef"></svg>
+	<svg class="flex-1" ref="svgRef" style="width: 100%; height: 100%"></svg>
 </template>
 
 <script lang="ts">
