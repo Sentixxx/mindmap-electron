@@ -1,10 +1,12 @@
 <script setup lang="ts">
+const router = useRouter();
 function openFile() {
 	// window.electron.openFile();
 }
 
-function saveFile() {
-	// window.electron.saveFile();
+function newFile() {
+	router.push('/new');
+	console.log('new file');
 }
 </script>
 
@@ -13,7 +15,7 @@ function saveFile() {
 		<div class="name">SparkMap</div>
 		<div class="btn">
 			<el-button type="primary" @click="openFile">打开文件</el-button>
-			<el-button type="primary" @click="saveFile">保存文件</el-button>
+			<el-button type="primary" @click="newFile">新建文件</el-button>
 		</div>
 	</div>
 </template>
