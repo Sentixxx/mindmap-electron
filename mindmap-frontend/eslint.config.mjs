@@ -10,8 +10,10 @@ export default [
 	...pluginVue.configs['flat/essential'],
 	{ files: ['**/*.vue'], languageOptions: { parserOptions: { parser: tseslint.parser } } },
 	{
-		ruels: {
-			'@typescript-eslint/no-explicit-any': 'off'
+		rules: {
+			'@typescript-eslint/no-explicit-any': 'off',
+			'@typescript-eslint/no-require-imports': 'off',
+			'@typescript-eslint/no-empty-object-type': 'off'
 		}
 	}
 ];

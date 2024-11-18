@@ -6,7 +6,6 @@ import axios, {
 	AxiosError
 } from 'axios';
 
-// @ts-ignore
 import qs from 'qs';
 
 import { config } from './config';
@@ -15,7 +14,7 @@ import { ElMessage } from 'element-plus';
 
 const { result_code, base_url } = config;
 // export const PATH_URL ='/api'
-// @ts-ignore
+
 export const PATH_URL = base_url[import.meta.env.VITE_API_BASEPATH];
 // 创建axios实例
 const service: AxiosInstance = axios.create({
