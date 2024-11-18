@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import Home from './views/Home.vue';
+import HomeView from './views/HomeView.vue';
+
 </script>
 
 <template>
-	<Home />
+	<HomeView />
 </template>
 
 <style lang="css">
