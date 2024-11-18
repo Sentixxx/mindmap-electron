@@ -1,18 +1,18 @@
 <template>
 	<el-menu
-		:collapse="!appStore.sidebar.opened"
+		:collapse="true"
 		:unique-opened="false"
 		:collapse-transition="false"
-		:router="true"
 	>
-		<el-menu-item index="/home">
-			<template #title><span>首页</span> </template>
+		<el-menu-item>
+			<el-icon><el-icon-menu/></el-icon>
 		</el-menu-item>
-		<el-sub-menu index="">
-			<template #title>
-				<span>记录</span>
-			</template>
-		</el-sub-menu>
+		<el-menu-item>
+			<el-icon><el-icon-plus/></el-icon>
+		</el-menu-item>
+		<el-menu-item>
+			<el-icon><el-icon-setting/></el-icon>
+		</el-menu-item>
 	</el-menu>
 </template>
 
