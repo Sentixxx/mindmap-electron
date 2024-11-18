@@ -21,10 +21,10 @@ function parseByMarkDown(input: string) {
 		return '';
 	}
 
-	for (let line of lines) {
+	for (const line of lines) {
 		console.log(line);
 		let titlePrefix = '';
-		for (let key in titleMap) {
+		for (const key in titleMap) {
 			if (line.startsWith(key)) {
 				titlePrefix = titleMap[key];
 				break;

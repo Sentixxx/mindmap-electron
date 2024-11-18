@@ -1,8 +1,8 @@
 <template>
-    <div class="flex-1">
-        <textarea class="w-full h-full border border-gray-400" v-model="value"></textarea>
-    </div>
-    <svg class="flex-1" ref="svgRef"></svg>
+	<div class="flex-1">
+		<textarea class="w-full h-full border border-gray-400" v-model="value"></textarea>
+	</div>
+	<svg class="flex-1" ref="svgRef"></svg>
 </template>
 
 <script lang="ts">
@@ -19,27 +19,27 @@ const initValue = `# markmap
   `;
 
 export default {
-    name: 'App',
-    setup() {
-        const svgRef = ref();
-        const value = ref(initValue);
-        let mm;
+	name: 'App',
+	setup() {
+		const svgRef = ref();
+		const value = ref(initValue);
+		let mm;
 
-        const update = () => {
-            const { root } = transformer.transform(value.value);
-            mm.setData(root);
-            mm.fit();
-        };
+		const update = () => {
+			const { root } = transformer.transform(value.value);
+			mm.setData(root);
+			mm.fit();
+		};
 
-        onMounted(() => {
-            mm = Markmap.create(svgRef.value);
-            update();
-        });
-        onUpdated(update);
-        return {
-            svgRef,
-            value
-        };
-    }
+		onMounted(() => {
+			mm = Markmap.create(svgRef.value);
+			update();
+		});
+		onUpdated(update);
+		return {
+			svgRef,
+			value
+		};
+	}
 };
 </script>

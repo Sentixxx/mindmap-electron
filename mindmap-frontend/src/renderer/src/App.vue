@@ -9,7 +9,7 @@ import HomeView from './views/HomeView.vue';
 				<MSideBar />
 			</el-aside>
 			<el-main>
-				<RouterView/>
+				<RouterView />
 			</el-main>
 		</el-container>
 	</div>
