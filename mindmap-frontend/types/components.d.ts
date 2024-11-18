@@ -22,9 +22,13 @@ declare module 'vue' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     MainPage: typeof import('./../src/renderer/src/components/MainPage.vue')['default']
+    MapRenderer: typeof import('./../src/renderer/src/components/mindmap-renderer/MapRenderer.vue')['default']
+    MindmapRenderer: typeof import('./../src/renderer/src/components/mindmap-renderer/mindmap-renderer.vue')['default']
     MSideBar: typeof import('./../src/renderer/src/components/mSideBar.vue')['default']
     MToolBar: typeof import('./../src/renderer/src/components/mToolBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VueComposition: typeof import('./../src/renderer/src/components/mindmap-renderer/vue-composition.vue')['default']
+    VueLegacy: typeof import('./../src/renderer/src/components/mindmap-renderer/vue-legacy.vue')['default']
   }
 }
