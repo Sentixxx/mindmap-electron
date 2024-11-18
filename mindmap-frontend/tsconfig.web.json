@@ -6,7 +6,7 @@
     "src/renderer/src/**/*.vue",
     "src/preload/*.d.ts",
     "types/*.d.ts"
-  ],
+, "__tests__/parser_test.ts"  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
