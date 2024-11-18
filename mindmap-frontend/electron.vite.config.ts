@@ -1,16 +1,15 @@
-import path from 'path'
+import path from 'path';
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import type { UserConfig } from 'electron-vite';
 import type { ConfigEnv } from 'vite';
 import { loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import Icons from 'unplugin-icons/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 import { fileURLToPath } from 'url';
-
 
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	let env = {} as any;
@@ -32,34 +31,33 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 			resolve: {
 				extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.mjs', '.vue'],
 				alias: {
-					
-					'@renderer': path.join(__dirname,'./src/renderer/src')
+					'@renderer': path.join(__dirname, './src/renderer/src')
 				}
 			},
 			plugins: [
 				vue(),
 				AutoImport({
-					imports: ['vue','vue-router','vuex','@vueuse/core'],
+					imports: ['vue', 'vue-router', 'vuex', '@vueuse/core'],
 					resolvers: [
 						ElementPlusResolver(),
 						IconsResolver({
-							prefix: 'Icon',
-						}),
+							prefix: 'Icon'
+						})
 					],
 					dts: fileURLToPath(new URL('./types/auto-imports.d.ts', import.meta.url))
 				}),
 				Components({
-					resolvers:[
+					resolvers: [
 						IconsResolver({
-							enabledCollections: ['ep'],
+							enabledCollections: ['ep']
 						}),
-						ElementPlusResolver(),
+						ElementPlusResolver()
 					],
-					dts: fileURLToPath(new URL('./types/components.d.ts', import.meta.url)),
+					dts: fileURLToPath(new URL('./types/components.d.ts', import.meta.url))
 				}),
 				Icons({
-					autoInstall: true,
-				}),
+					autoInstall: true
+				})
 			],
 			server: {
 				fs: {
@@ -77,7 +75,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 				hmr: {
 					overlay: false
 				}
-			},
+			}
 		}
 	};
 });

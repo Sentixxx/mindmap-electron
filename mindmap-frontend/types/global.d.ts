@@ -24,8 +24,8 @@ declare global {
 		| 'multipart/form-data';
 
 	interface AppSettings {
-		title: string
-		version: string
+		title: string;
+		version: string;
 	}
 }
 declare const window: any;

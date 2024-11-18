@@ -1,7 +1,6 @@
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginVue from "eslint-plugin-vue";
-
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import pluginVue from 'eslint-plugin-vue';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
