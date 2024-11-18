@@ -5,8 +5,7 @@ test('title content baisc test', () => {
 # Title 1
 Content 1
 ## Subtitle 1
-Content 2
-`;
+Content 2`;
 
     let result1 = parseByMarkDown(input1);
     expect(result1).toEqual({'Title 1':['Content 1'], 'Subtitle 1':['Content 2']});

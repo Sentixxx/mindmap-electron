@@ -27,7 +27,8 @@ body,
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh; /* 使用视窗高度作为高度设置 */
+	height: 100vh;
+	/* 使用视窗高度作为高度设置 */
 }
 
 .sidebar-container {
