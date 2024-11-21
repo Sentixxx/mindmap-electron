@@ -1,16 +1,34 @@
 # mindmap-generative-ai
 
-# 开发说明
-`pnpm 8.14.2`
-`npm 10.2.4`
-在`mindmap-frontend`目录下输入`pnpm install`下载依赖
-使用`pnpm dev`进行调试
+An Electron application with Vue and TypeScript
 
-# commit 规范
-使用 vscode 插件 vivaxy.vscode-conventional-commits 进行提交
+## Recommended IDE Setup
 
-请 fork 本仓库，在分支开发后进行 pull request
-pull request 前请进行格式化，使用 ESLint 和 Python Indent 进行格式化
-`pnpm format`
-`pnpm lint`
-请按时同步上游仓库
+- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
+
+## Project Setup
+
+### Install
+
+```bash
+$ npm install
+```
+
+### Development
+
+```bash
+$ npm run dev
+```
+
+### Build
+
+```bash
+# For windows
+$ npm run build:win
+
+# For macOS
+$ npm run build:mac
+
+# For Linux
+$ npm run build:linux
+```
