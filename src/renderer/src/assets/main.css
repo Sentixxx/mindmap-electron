@@ -10,6 +10,12 @@ body {
   user-select: none;
 }
 
+body.dark-theme {
+  background-color: #121212; /* 暗黑主题背景 */
+  color: #ffffff; /* 暗黑主题文字颜色 */
+}
+
+
 code {
   font-weight: 600;
   padding: 3px 5px;
@@ -150,6 +156,8 @@ code {
     border: none;
   }
 }
+
+
 
 @media (max-width: 720px) {
   .text {
