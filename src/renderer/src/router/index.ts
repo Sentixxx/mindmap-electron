@@ -1,28 +1,17 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import NewView from '../views/NewView.vue';
+import SettingsView from '../views/SettingsView.vue'; // 新导入的设置视图
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: "/new",
-    name: "New",
-    component: () => import("../views/NewView.vue"),
-  },
-  {
-    path: "/",
-    name: "Home",
-    component: () => import("../views/HomeView.vue"),
-  },
+const routes = [
+  { path: '/', component: HomeView },
+  { path: '/new', component: NewView },
+  { path: '/settings', component: SettingsView }, // 添加设置路由
 ];
+
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
-router.beforeEach((to, from) => {
-  if (to != from) {
-    console.log("pass");
-    return true;
-  } else {
-    return false;
-  }
-});
 export default router;

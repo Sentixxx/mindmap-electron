@@ -65,3 +65,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body.dark-theme {
+  background-color: #121212; /* 暗黑主题背景 */
+  color: #ffffff; /* 暗黑主题文字颜色 */
+}
