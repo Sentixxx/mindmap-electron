@@ -1,3 +1,3 @@
 <template>
-  <el-menu mode="horizontal"> </el-menu>
+	<el-menu mode="horizontal"> </el-menu>
 </template>

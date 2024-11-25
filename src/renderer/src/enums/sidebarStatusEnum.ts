@@ -1,4 +1,4 @@
 export const enum SidebarStatusEnum {
-  OPENED = "open",
-  CLOSED = "closed",
+	OPENED = 'open',
+	CLOSED = 'closed'
 }
