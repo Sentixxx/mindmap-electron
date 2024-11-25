@@ -1,7 +1,16 @@
 "use strict";
 const electron = require("electron");
 const preload = require("@electron-toolkit/preload");
-const api = {};
+const api = {
+  openFileDialog: async () => {
+    return await electron.ipcRenderer.send("open-file-dialog");
+  },
+  selectedFile: (callback) => {
+    electron.ipcRenderer.on("selected-file", (_, filePaths) => {
+      callback(filePaths);
+    });
+  }
+};
 if (process.contextIsolated) {
   try {
     electron.contextBridge.exposeInMainWorld("electron", preload.electronAPI);

@@ -34,6 +34,16 @@ electron.app.whenReady().then(() => {
     utils.optimizer.watchWindowShortcuts(window);
   });
   electron.ipcMain.on("ping", () => console.log("pong"));
+  electron.ipcMain.on("open-file-dialog", async (event) => {
+    electron.dialog.showOpenDialog({
+      properties: ["openFile", "multiSelections"]
+    }).then((result) => {
+      console.log(result);
+      event.sender.send("selected-file", result.filePaths);
+    }).catch((error) => {
+      console.error(error);
+    });
+  });
   createWindow();
   electron.app.on("activate", function() {
     if (electron.BrowserWindow.getAllWindows().length === 0) createWindow();

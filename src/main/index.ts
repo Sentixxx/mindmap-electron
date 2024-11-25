@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron';
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png';
@@ -51,7 +51,19 @@ app.whenReady().then(() => {
 
 	// IPC test
 	ipcMain.on('ping', () => console.log('pong'));
-
+	ipcMain.on('open-file-dialog', async (event) => {
+		dialog
+			.showOpenDialog({
+				properties: ['openFile', 'multiSelections']
+			})
+			.then((result) => {
+        console.log(result);
+				event.sender.send('selected-file', result.filePaths);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	});
 	createWindow();
 
 	app.on('activate', function () {

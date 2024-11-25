@@ -1,7 +1,11 @@
 <script setup lang="ts">
 const router = useRouter();
 function openFile() {
-	// window.electron.openFile();
+	window.api.openFileDialog();
+	window.api.selectedFile((file: string) => {
+		console.log(file);
+		// open file
+	});
 }
 
 function newFile() {
